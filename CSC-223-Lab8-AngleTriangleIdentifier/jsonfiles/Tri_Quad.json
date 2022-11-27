@@ -1,0 +1,31 @@
+//          G   H
+//         / \ / \
+//        /   X   \           X is not a point it is a crossing of 2 lines
+//       E\__/_\__/F        
+//          C---D
+//          | X |
+//          A---B
+
+{"Figure" :
+	{ "Description" : "Tri Quad Shape.",
+		"Points" : [
+			{ "name": "A", "x" : 4, "y" : 0 },
+			{ "name": "B", "x" : 8, "y" : 0 },
+			{ "name": "C", "x" : 4, "y" : 5 }, 
+			{ "name": "D", "x" : 8, "y" : 5 },
+			{ "name": "E", "x" : 0, "y" : 10},
+			{ "name": "F", "x" : 12, "y" : 10},
+			{ "name": "G", "x" : 4, "y" : 12},
+			{ "name": "H", "x" : 8, "y" : 12}
+		],
+
+		"Segments" :  [
+			{"A" : ["B", "C", "D"] },
+			{"B" : ["C","D"] },
+			{"C" : ["D", "E","H" ] },
+			{"D" : ["F","G"] },
+			{"E" : ["F","G"] },
+			{"F" : ["H"] }
+		]
+	}
+}
