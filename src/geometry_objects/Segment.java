@@ -151,12 +151,16 @@ public class Segment extends GeometricObject
 	 */
 	public boolean coincideWithoutOverlap(Segment that)
 	{
-		if (!isCollinearWith(that)) return false;
+		if(this.equals(that)) return false;
+		
+		if(!isCollinearWith(that)) return false;
 
-		// Check the endpoints of @that 
-		if (this.pointLiesBetweenEndpoints(that.getPoint1())) return false;
 
-		if (this.pointLiesBetweenEndpoints(that.getPoint2())) return false;
+		if(this.pointLiesBetweenEndpoints(that.getPoint1()) ||
+				this.pointLiesBetweenEndpoints(that.getPoint2())) return false;
+
+		if(that.pointLiesBetweenEndpoints(this.getPoint1()) ||
+				that.pointLiesBetweenEndpoints(this.getPoint2())) return false;
 
 		return true;
 	}
