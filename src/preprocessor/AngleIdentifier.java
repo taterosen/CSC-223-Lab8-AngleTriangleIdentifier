@@ -3,7 +3,7 @@ package preprocessor;
 import java.util.List;
 import java.util.Map;
 
-import exceptions.FactException;
+import input.exception.FactException;
 import geometry_objects.Segment;
 import geometry_objects.angle.Angle;
 import geometry_objects.angle.AngleEquivalenceClasses;

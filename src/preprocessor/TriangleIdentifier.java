@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import exceptions.FactException;
+import input.exception.FactException;
 import geometry_objects.Segment;
 import geometry_objects.Triangle;
 
