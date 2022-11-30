@@ -58,6 +58,20 @@ public class AngleStructureComparator implements Comparator<Angle>
 	@Override
 	public int compare(Angle left, Angle right)
 	{
-        // TODO
+        // TODO: TEST
+		//inconclusive, not structurally comparable
+		if (!left.overlays(right)) return STRUCTURALLY_INCOMPARABLE;
+		//0: Inconclusive result 
+		if ((left.getRay1().length() > right.getRay1().length()) && left.getRay2().length() < right.getRay2().length()) return 0;
+		if ((left.getRay1().length() < right.getRay1().length()) && left.getRay2().length() > right.getRay2().length()) return 0;
+		
+		//1: Left Rays greater than corresponding Right Rays
+		if ((left.getRay1().length() >= right.getRay1().length()) && left.getRay2().length() >= right.getRay2().length()) return 1;
+		//-1: Left Rays less than corresponding Right Rays
+		return -1;
+		
+		
+		
+
 	}
 }

@@ -34,6 +34,10 @@ public class AngleIdentifier
 
 	private void computeAngles()
 	{
-		// TODO
+		// TODO Algorithm?
+		//intersection of 2 segments will be vertex
+		//use minimal segments
+		
+		
 	}
 }

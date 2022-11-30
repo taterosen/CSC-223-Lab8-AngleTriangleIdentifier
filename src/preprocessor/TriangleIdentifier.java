@@ -37,6 +37,6 @@ public class TriangleIdentifier
 
 	private void computeTriangles()
 	{
-		// TODO
+		// TODO Algorithm?
 	}
 }

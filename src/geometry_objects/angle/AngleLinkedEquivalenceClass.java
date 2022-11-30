@@ -1,5 +1,7 @@
 package geometry_objects.angle;
 
+import java.util.Comparator;
+
 import geometry_objects.angle.comparators.AngleStructureComparator;
 import utilities.eq_classes.LinkedEquivalenceClass;
 
@@ -21,9 +23,23 @@ import utilities.eq_classes.LinkedEquivalenceClass;
  *    We want the 'smallest' angle structurally to be the canonical element of an
  *    equivalence class.
  * 
- * @author XXX
+ * @author George (Mr. Employed), Tate, and Jace
  */
 public class AngleLinkedEquivalenceClass extends LinkedEquivalenceClass<Angle>
 {
-    // TODO
+
+	public AngleLinkedEquivalenceClass(AngleStructureComparator comparator) {
+		super(comparator);
+		
+	}
+    // TODO Override applicable methods to account for new comparator values (4 rather 3)
+	
+	//belongs 
+	@Override
+	public boolean belongs(Angle target) {
+		//TODO override to use new comparator
+		return false;
+	}
+	
+	
 }

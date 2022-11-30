@@ -173,7 +173,31 @@ public class Angle implements Comparable<Angle>
 
 	@Override
 	public boolean equals(Object obj)
-	{
-		// TODO
+	{	
+		//TODO TEST (we were dead)
+		//check same object
+		if (this == obj) return true;
+		//check null
+		if (obj == null) return false;
+		//check same instance
+		if (!(obj instanceof Angle)) return false;
+		
+		//cast to angle
+		Angle objAsAngle = (Angle) obj;
+		
+		//vertices must be the same
+		Point vertex = this.getVertex();
+		Point vertexOfObj = objAsAngle.getVertex();
+		Point ray1other = this.getRay1().other(vertex);
+		Point objRay1other = objAsAngle.getRay1().other(vertexOfObj);
+		Point ray2other = this.getRay2().other(vertex);
+		Point objRay2other = objAsAngle.getRay2().other(vertexOfObj);
+		
+		if (!vertex.equals(vertexOfObj)) return false;
+		//end points should be the same (but may be flipped) EX: CAB / BAC
+		if (!ray1other.equals(objRay1other) || !ray1other.equals(objRay2other)) return false;
+		if (!ray2other.equals(objRay1other) || !ray2other.equals(objRay2other)) return false;
+		
+		return true;
 	}
 }
