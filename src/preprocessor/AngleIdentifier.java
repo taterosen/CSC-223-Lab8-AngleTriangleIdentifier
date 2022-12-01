@@ -36,7 +36,8 @@ public class AngleIdentifier
 	{
 		// TODO Algorithm?
 		//intersection of 2 segments will be vertex
-		//use minimal segments
+		//use minimal segments and nonminimal segments
+		//for every vertex, choose a segment and compute the angles between all other segments with that same vertex
 		
 		
 	}

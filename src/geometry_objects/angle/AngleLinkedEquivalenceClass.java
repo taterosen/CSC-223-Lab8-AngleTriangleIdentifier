@@ -32,12 +32,12 @@ public class AngleLinkedEquivalenceClass extends LinkedEquivalenceClass<Angle>
 		super(comparator);
 		
 	}
-    // TODO Override applicable methods to account for new comparator values (4 rather 3)
+    //TODO Override applicable methods to account for new comparator values (4 rather 3)
 	
 	//belongs 
 	@Override
 	public boolean belongs(Angle target) {
-		//TODO override to use new comparator
+		//TODO override to use new comparator values 
 		return false;
 	}
 	

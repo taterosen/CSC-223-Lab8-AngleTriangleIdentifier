@@ -185,7 +185,7 @@ public class Angle implements Comparable<Angle>
 		//cast to angle
 		Angle objAsAngle = (Angle) obj;
 		
-		//vertices must be the same
+		//vertices and rays of this and that obj
 		Point vertex = this.getVertex();
 		Point vertexOfObj = objAsAngle.getVertex();
 		Point ray1other = this.getRay1().other(vertex);
@@ -193,6 +193,7 @@ public class Angle implements Comparable<Angle>
 		Point ray2other = this.getRay2().other(vertex);
 		Point objRay2other = objAsAngle.getRay2().other(vertexOfObj);
 		
+		//vertices must be the same
 		if (!vertex.equals(vertexOfObj)) return false;
 		//end points should be the same (but may be flipped) EX: CAB / BAC
 		if (!ray1other.equals(objRay1other) || !ray1other.equals(objRay2other)) return false;
