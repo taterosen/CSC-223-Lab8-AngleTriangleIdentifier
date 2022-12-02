@@ -33,6 +33,8 @@ public class ImplicitPointPreprocessor
 				
 				//check that doesn't exist
 				if(p!=null && givenPoints.getPoint(p) == null) {
+					//TODO
+					givenPoints.put(p.getName(), p.getX(), p.getY());
 					implicitPoints.add(p);
 				}
 			}
