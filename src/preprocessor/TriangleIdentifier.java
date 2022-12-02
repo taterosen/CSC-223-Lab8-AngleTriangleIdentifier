@@ -56,14 +56,13 @@ public class TriangleIdentifier
 					
 					try 
 					{
-						//TODO TEST
 						//try to create triangle
 						Triangle potentialTriangle = new Triangle(segmentList);
 						_triangles.add(potentialTriangle);
 					} 
 					catch (FactException e) 
 					{
-						//shhhhh
+						//TODO what to do with fact exception? 
 					}
 					
 				}

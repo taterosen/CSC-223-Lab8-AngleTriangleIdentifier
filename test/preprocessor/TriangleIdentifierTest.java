@@ -122,4 +122,7 @@ class TriangleIdentifierTest
 			assertTrue(expectedTriangles.contains(computedTriangle));
 		}
 	}
+	
+	//TODO create triangle test for other shapes
+	
 }
