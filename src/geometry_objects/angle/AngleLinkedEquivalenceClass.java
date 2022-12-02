@@ -80,6 +80,7 @@ public class AngleLinkedEquivalenceClass extends LinkedEquivalenceClass<Angle>
 	@Override
 	public boolean add(Angle element) {
 		//TODO need to check if need to swap cannonical
+		
 		return false;
 	}
 	
@@ -87,7 +88,19 @@ public class AngleLinkedEquivalenceClass extends LinkedEquivalenceClass<Angle>
 	@Override
 	public boolean removeCanonical() {
 		//TODO when resetting need to have smallest angle as canonical
-		return false;
+		if ((_canonical == null) || (_rest.isEmpty())) return false;
+		
+		//find smallest angle in _rest
+		Angle smallest = _rest.getIndex(0);
+		for (int i = 0; i < _rest.size(); i++) {
+			Angle currAngle = _rest.getIndex(i);
+			if (_comparator.compare(smallest, currAngle) == 1) smallest = currAngle;
+		}
+		
+		//remove from rest and set as canonical 
+		_rest.remove(smallest);
+		_canonical = smallest;
+		return true;
 	}
 	
 	
