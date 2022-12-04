@@ -26,7 +26,6 @@ import utilities.eq_classes.LinkedEquivalenceClass;
  */
 public class AngleEquivalenceClasses extends EquivalenceClasses<Angle>
 {
-	
 	//protected Comparator<Angle> _comparator;
 	//protected List<LinkedEquivalenceClass<Angle>> _classes;
 
