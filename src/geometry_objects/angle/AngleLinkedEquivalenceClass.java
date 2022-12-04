@@ -28,24 +28,18 @@ import utilities.eq_classes.LinkedList;
  */
 public class AngleLinkedEquivalenceClass extends LinkedEquivalenceClass<Angle>
 {
-
-	protected Angle _canonical;
-	protected Comparator<Angle> _comparator;
-	protected LinkedList<Angle> _rest;
+	
+	//protected Angle _canonical;
+	//protected Comparator<Angle> _comparator;
+	//protected LinkedList<Angle> _rest;
 	public static final int STRUCTURALLY_INCOMPARABLE = Integer.MAX_VALUE;
 
 
 	public AngleLinkedEquivalenceClass(AngleStructureComparator comparator) {
 		super(comparator);
 	}
-
-
-	/**
-	 * Checks if a given angle belongs in the equivalence class by comparing it
-	 * to the canonical angle
-	 * @param target
-	 * @return false if target is not comparable with canonical, true otherwise
-	 */
+	
+	//TODO test all methods
 	@Override
 	public boolean belongs(Angle target) {
 		int compareVal = _comparator.compare(_canonical, target);
@@ -102,7 +96,7 @@ public class AngleLinkedEquivalenceClass extends LinkedEquivalenceClass<Angle>
 	
 	@Override
 	public boolean removeCanonical() {
-		//TODO when resetting need to have smallest angle as canonical
+		
 		if ((_canonical == null) || (_rest.isEmpty())) return false;
 		
 		//find smallest angle in _rest

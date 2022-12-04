@@ -123,6 +123,6 @@ class TriangleIdentifierTest
 		}
 	}
 	
-	//TODO create triangle test for other shapes
+	
 	
 }

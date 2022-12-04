@@ -24,6 +24,11 @@ public class EquivalenceClasses<T> {
 	 */
 	public EquivalenceClasses(Comparator<T> comparator) {
 		_comparator = comparator;
+		
+	}
+	
+	public EquivalenceClasses() {
+		_comparator = null;
 		_classes = new ArrayList<LinkedEquivalenceClass<T>>();
 	}
 

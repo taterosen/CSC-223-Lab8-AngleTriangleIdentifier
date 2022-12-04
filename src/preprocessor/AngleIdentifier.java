@@ -19,7 +19,7 @@ public class AngleIdentifier
 	}
 
 	/*
-	 * Compute the figure triangles on the fly when requested; memoize results for subsequent calls.
+	 * Compute the figure triangles on the fly when requested; memorize results for subsequent calls.
 	 */
 	public AngleEquivalenceClasses getAngles()
 	{
@@ -38,6 +38,7 @@ public class AngleIdentifier
 		//intersection of 2 segments will be vertex
 		//use minimal segments and nonminimal segments
 		//for every vertex, choose a segment and compute the angles between all other segments with that same vertex
+		
 		
 		
 	}
