@@ -48,7 +48,7 @@ public class AngleIdentifier
 						_angles.add(newAngle);
 					} catch (FactException e) {
 						//TODO ask what to put in here
-						e.printStackTrace();
+						//e.printStackTrace();
 					}
 				}
 				
