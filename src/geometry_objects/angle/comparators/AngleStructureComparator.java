@@ -60,7 +60,7 @@ public class AngleStructureComparator implements Comparator<Angle>
 	{
         // TODO: TEST
 		//inconclusive, not structurally comparable
-		if (!left.overlays(right)) return STRUCTURALLY_INCOMPARABLE;
+		if (!left.overlays(right) && !left.getVertex().equals(right.getVertex())) return STRUCTURALLY_INCOMPARABLE;
 		//0: Inconclusive result 
 		if ((left.getRay1().length() > right.getRay1().length()) && left.getRay2().length() < right.getRay2().length()) return 0;
 		if ((left.getRay1().length() < right.getRay1().length()) && left.getRay2().length() > right.getRay2().length()) return 0;
