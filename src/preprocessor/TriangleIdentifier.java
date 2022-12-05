@@ -39,6 +39,8 @@ public class TriangleIdentifier
 	private void computeTriangles()
 	{
 		//Gross Algorithm
+		//TODO changed implicit point calculator, will break this temporarily
+		//TODO need to have implicit points added to current segmentDatabase to work properly
 		
 		//check all segments
 		for (Segment currSegment:_segments.keySet()) 

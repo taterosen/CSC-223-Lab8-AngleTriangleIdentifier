@@ -34,7 +34,7 @@ public class ImplicitPointPreprocessor
 				//check that doesn't exist
 				if(p!=null && givenPoints.getPoint(p) == null) {
 					//add implicit point to the pointdatabase 
-					givenPoints.put(p.getName(), p.getX(), p.getY());
+					//givenPoints.put(p.getName(), p.getX(), p.getY());
 					//add implicit points to get of implicit points
 					implicitPoints.add(p);
 				}

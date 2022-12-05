@@ -175,7 +175,7 @@ public class Segment extends GeometricObject
 		SortedSet<Point> pointsOn = new TreeSet<Point>();
 		for (Point pt : points)
 		{
-			if (pointLiesBetweenEndpoints(pt)) pointsOn.add(pt);
+			if (pointLiesOnSegment(pt)) pointsOn.add(pt);
 		}
 		return pointsOn;
 	}
@@ -214,4 +214,21 @@ public class Segment extends GeometricObject
     {
     	return "Seg(" + _point1.getName() + _point2.getName() + ")";
     }
+    
+
+	/**
+	 * Checks whether this segment is a minimal segment based on an input set of points
+	 * Will only return false if points lie BETWEEN the segments endpoints
+	 * @param points
+	 * @return true if minimal segment (AKA no points lie between endpoints)
+	 */
+	public boolean isMinimalSegment(Set<Point> points) {
+		//loop over all points, if any points lie between then not minimal 
+		for (Point p:points) {
+			if (pointLiesBetweenEndpoints(p)) return false;
+		}
+		
+		return true;
+			
+	}
 }

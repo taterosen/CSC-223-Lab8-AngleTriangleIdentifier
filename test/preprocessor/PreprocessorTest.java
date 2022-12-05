@@ -95,6 +95,8 @@ class PreprocessorTest
 		{
 			assertTrue(iSegments.contains(iSegment));
 		}
+		
+		
 
 		//
 		// Ensure we have ALL minimal segments: 20 in this figure.
@@ -107,9 +109,10 @@ class PreprocessorTest
 		expectedMinimalSegments.add(new Segment(points.getPoint("E"), points.getPoint("A")));
 
 		Set<Segment> minimalSegments = pp.identifyAllMinimalSegments(iPoints, segments, iSegments);
-
+		
+		
 		assertEquals(expectedMinimalSegments.size(), minimalSegments.size());
-
+		
 		for (Segment minimalSeg : minimalSegments)
 		{
 			assertTrue(expectedMinimalSegments.contains(minimalSeg));
@@ -310,6 +313,7 @@ class PreprocessorTest
 		
 		for (Segment minimalSeg : minimalSegments)
 		{
+			System.out.println(minimalSeg);
 			assertTrue(expectedMinimalSegments.contains(minimalSeg));
 		}
 		
