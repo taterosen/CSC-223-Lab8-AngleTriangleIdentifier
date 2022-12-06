@@ -88,9 +88,11 @@ public class AngleLinkedEquivalenceClass extends LinkedEquivalenceClass<Angle>
 	@Override
 	public boolean add(Angle element) {
 		//TODO need to check if need to swap canonical
-		if(this.demoteAndSetCanonical(element)) return true;
-		_rest.addToFront(element);
-		return false;
+		//if(!this.demoteAndSetCanonical(element)) return false;
+		//_rest.addToBack(element);
+		//return true;
+		
+		return this.demoteAndSetCanonical(element);
 	}
 	
 	@Override

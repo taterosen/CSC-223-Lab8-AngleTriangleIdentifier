@@ -22,7 +22,7 @@ class AngleLinkedEquivalenceClassTest {
 	protected Preprocessor _pp;
 	protected Map<Segment, Segment> _segments;
 	protected AngleStructureComparator comparator = new AngleStructureComparator();
-	protected AngleLinkedEquivalenceClass _AngleEC = new AngleLinkedEquivalenceClass(comparator);
+	protected AngleLinkedEquivalenceClass _AngleEC1 = new AngleLinkedEquivalenceClass(comparator);
 	
 	protected void init(String filename)
 	{
@@ -39,9 +39,26 @@ class AngleLinkedEquivalenceClassTest {
 		_segments = _pp.getAllSegments();
 		
 	}
-
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//test whether belongs or not
+	
+	
 	@Test
-	void belongsTest() throws FactException {
+	void demoteAndSetCanonicalTest() {
+		//fail("Not yet implemented");
+	}
+	
+	@Test
+	void addTest() throws FactException {
 		init("crossing_symmetric_triangle.json");
 		//      A                                 
 		//     / \                                
@@ -69,25 +86,34 @@ class AngleLinkedEquivalenceClassTest {
 		
 		Angle BDE = new Angle(bd, de);
 		Angle BEC = new Angle(be, ce);
-		
-		Angle DAC = new Angle(da, ac);
-		Angle BAE = new Angle(ba, ae);
-		Angle DAE = new Angle(da, ae);
 		Angle ABC = new Angle(ab, bc);
-		Angle BAC = new Angle(ab, ac);
 		Angle ADE = new Angle(da, de);
 		Angle AED = new Angle(ae, de);
 		Angle DEC = new Angle(de, ce);
-	}
-	
-	@Test
-	void demoteAndSetCanonicalTest() {
-		//fail("Not yet implemented");
-	}
-	
-	@Test
-	void addTest() {
-		//fail("Not yet implemented");
+		
+		Angle BAC = new Angle(ab, ac);
+		Angle DAC = new Angle(da, ac);
+		Angle BAE = new Angle(ba, ae);
+		Angle DAE = new Angle(da, ae);
+		
+		//BAC == DAE == DAC == BAE//
+		////////////////////////////
+		assertTrue(_AngleEC1.add(BAC));
+		//add null
+		assertFalse(_AngleEC1.add(null));
+		//add existing
+		assertTrue(_AngleEC1.belongs(BAC));
+		assertFalse(_AngleEC1.add(BAC));
+		assertEquals(1, _AngleEC1.size());
+		//check DAC
+		assertTrue(_AngleEC1.belongs(DAC));
+		assertTrue(_AngleEC1.add(DAC));
+		
+		
+		
+		//assertTrue(_AngleEC1.add(DAC));
+		//assertTrue(_AngleEC1.add(BAE));
+		//assertTrue(_AngleEC1.add(DAE));
 	}
 	
 	@Test
