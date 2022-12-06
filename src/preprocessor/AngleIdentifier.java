@@ -45,8 +45,11 @@ public class AngleIdentifier
 				if(vertex != null) {
 					try {
 						Angle newAngle = new Angle(seg1, seg2);
-						//TODO DEBUGGING: added check for duplicates, needed?
-						if (!_angles.contains(newAngle)) _angles.add(newAngle);
+						
+						_angles.add(newAngle);
+						//if (!_angles.contains(newAngle)) _angles.add(newAngle);
+						
+						
 					} catch (FactException e) {
 						//TODO ask what to put in here
 						//e.printStackTrace();
@@ -55,7 +58,6 @@ public class AngleIdentifier
 				
 			}
 		}
-		
 		
 	}
 }

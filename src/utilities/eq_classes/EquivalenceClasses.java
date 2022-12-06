@@ -34,7 +34,7 @@ public class EquivalenceClasses<T> {
 	}
 
 	/**
-	 * Creates 
+	 * 
 	 * @param element
 	 * @return true if addition was successful
 	 */
@@ -43,16 +43,16 @@ public class EquivalenceClasses<T> {
 		if (element == null) return false;
 		//find index element belongs to and add to that class
 		int index = indexOfClass(element);
-		if (!(index == -1)) {
-			_classes.get(index).add(element);
-			return true;
+		if (index != -1) {
+			return _classes.get(index).add(element);
+			//return true;
 		}
 		
 		//otherwise create a new equivalence class and set element as that classes canonical
 		LinkedEquivalenceClass<T> c = new LinkedEquivalenceClass<T>(_comparator);
 		c.demoteAndSetCanonical(element);
-		_classes.add(c);
-		return true;
+		return _classes.add(c);
+		//return true;
 	}
 
 	/**
@@ -64,7 +64,7 @@ public class EquivalenceClasses<T> {
 		//check if target is null
 		if (target == null) return false;
 		//check each class in classes and see if contains target
-		for (LinkedEquivalenceClass<T> c:_classes) {
+		for (LinkedEquivalenceClass<T> c: _classes) {
 			if (c.contains(target)) return true;
 		}
 		//item not contained

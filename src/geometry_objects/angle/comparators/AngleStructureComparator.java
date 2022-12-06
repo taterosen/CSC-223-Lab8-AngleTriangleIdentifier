@@ -59,19 +59,83 @@ public class AngleStructureComparator implements Comparator<Angle>
 	public int compare(Angle left, Angle right)
 	{
 		//inconclusive, not structurally comparable
-		if (!left.overlays(right) && !left.getVertex().equals(right.getVertex())) return STRUCTURALLY_INCOMPARABLE; 
+		if(!left.getVertex().equals(right.getVertex())) return STRUCTURALLY_INCOMPARABLE;
 		
-		//1: Left Rays greater than corresponding Right Rays
-		if ((left.getRay1().length() >= right.getRay1().length()) && left.getRay2().length() >= right.getRay2().length()) return 1;
+		if(!MathUtilities.doubleEquals(left.getMeasure(), right.getMeasure())) return STRUCTURALLY_INCOMPARABLE;
+		
+		if (!left.overlays(right)) return STRUCTURALLY_INCOMPARABLE; 
+				
+		Segment leftRay1 = left.getRay1();
+		Segment leftRay2 = left.getRay1();
 
-		//-1: Left Rays less than corresponding Right Rays
-		if ((left.getRay1().length() <= right.getRay1().length()) && left.getRay2().length() <= right.getRay2().length()) return -1;
+		Segment overlayingLeftRay1 = right.overlayingRay(left.getRay1());
+		Segment overlayingLeftRay2 = right.overlayingRay(left.getRay2());
 		
-		//0: Inconclusive result 
-		if ((left.getRay1().length() > right.getRay1().length()) && left.getRay2().length() < right.getRay2().length()) return 0;
-		if ((left.getRay1().length() < right.getRay1().length()) && left.getRay2().length() > right.getRay2().length()) return 0;
-		//TODO change final return value
-		return -2048;
+		Point vertex = left.getVertex();
+		
+		// STRUCTURALLY LARGER
+		if(leftRay1.pointLiesBetweenEndpoints(overlayingLeftRay1.other(vertex))) {
+			if(leftRay2.pointLiesBetweenEndpoints(overlayingLeftRay2.other(vertex))) return 1;
+			if(leftRay2.equals(overlayingLeftRay2)) return 1;
+		}
+		
+		
+		if(leftRay2.pointLiesBetweenEndpoints(overlayingLeftRay2.other(vertex))) {
+			//if(leftRay1.pointLiesBetweenEndpoints(overlayingLeftRay1.other(vertex))) return 1;
+			if(leftRay1.equals(overlayingLeftRay1)) return 1;
+		}
+		
+		if(leftRay1.equals(overlayingLeftRay1) && leftRay2.equals(overlayingLeftRay2)) return 1;
+		
+		
+		//STRUCTURALLY SMALLER
+		if(overlayingLeftRay1.pointLiesBetweenEndpoints(leftRay1.other(vertex))) {
+			if(overlayingLeftRay2.pointLiesBetweenEndpoints(leftRay2.other(vertex))) return -1;
+			if(overlayingLeftRay2.equals(leftRay2)) return -1;
+		}
+		
+		if(overlayingLeftRay2.pointLiesBetweenEndpoints(leftRay2.other(vertex))) {
+			//if(overlayingLeftRay1.pointLiesBetweenEndpoints(leftRay1.other(vertex))) return -1;
+			if(overlayingLeftRay1.equals(leftRay1)) return -1;
+		}
+		
+		//OTHER
+		return 0;
+		
+		
+		
+		
+		
+//		double leftRay1Length = left.getRay1().length();
+//		double leftRay2Length = left.getRay2().length();
+//		
+//		double rightRay1Length = right.getRay1().length();
+//		double rightRay2Length = right.getRay2().length();
+//		
+//		
+//		
+//		//1: Left Rays greater than or equal to corresponding Right Rays (structurally larger)
+//		//if ((leftRay1Length >= rightRay1Length) && leftRay2Length >= rightRay2Length) return 1;
+//		
+//		if(MathUtilities.doubleEquals(leftRay1Length, rightRay1Length) || leftRay1Length > rightRay1Length) return 1;
+//		
+//		
+//		if(MathUtilities.doubleEquals(leftRay2Length, rightRay2Length) || leftRay2Length > rightRay2Length ) return 1;
+//		
+//		
+//		
+//		
+//		
+//		//-1: Left Rays less than or equal to corresponding Right Rays (structurally smaller)
+//		if ((leftRay1Length <= rightRay2Length) && leftRay2Length <= rightRay2Length) return -1;
+//		
+//		return 0;
+		
+//		//0: Inconclusive result 
+//		if ((leftRay1Length > rightRay1Length) && leftRay2Length < rightRay2Length) return 0;
+//		if ((leftRay1Length < rightRay1Length) && leftRay2Length > rightRay2Length) return 0;
+//		//TODO change final return value
+//		return -2048;
 		
 		
 		

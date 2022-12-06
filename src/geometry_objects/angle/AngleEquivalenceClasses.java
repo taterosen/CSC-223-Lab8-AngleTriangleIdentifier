@@ -1,5 +1,6 @@
 package geometry_objects.angle;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
@@ -27,14 +28,21 @@ import utilities.eq_classes.LinkedEquivalenceClass;
 public class AngleEquivalenceClasses extends EquivalenceClasses<Angle>
 {
 	//protected Comparator<Angle> _comparator;
-	//protected List<LinkedEquivalenceClass<Angle>> _classes;
+	protected List<AngleLinkedEquivalenceClass> _classes;
 
 	public AngleEquivalenceClasses() {
 		super(new AngleStructureComparator());
+		this._classes = new ArrayList<AngleLinkedEquivalenceClass>();
 	}
 	
 	public AngleEquivalenceClasses(Comparator<Angle> comparator) {
 		super(comparator);
+		this._classes = new ArrayList<AngleLinkedEquivalenceClass>();
+	}
+	
+	@Override
+	public boolean add(Angle element) {
+		return super.add(element);
 	}
 	
 

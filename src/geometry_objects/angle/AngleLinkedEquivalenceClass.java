@@ -44,8 +44,7 @@ public class AngleLinkedEquivalenceClass extends LinkedEquivalenceClass<Angle>
 		
 		int compareVal = _comparator.compare(_canonical, target);
 
-		if (compareVal == STRUCTURALLY_INCOMPARABLE) return false;
-		return true;
+		return compareVal != STRUCTURALLY_INCOMPARABLE;
 	}
 
 	/**
@@ -71,11 +70,16 @@ public class AngleLinkedEquivalenceClass extends LinkedEquivalenceClass<Angle>
 		if (contains(element)) _rest.remove(element);
 
 		//check if element is smaller than current canonical
-		if (_comparator.compare(_canonical, element) == 1) {
+		int compareVal = _comparator.compare(_canonical, element);
+		if (compareVal == 1) {
 			_rest.addToFront(_canonical);
 			_canonical = element;
 			return true;
 		}
+//		if(compareVal == 0) {
+//			_rest.addToFront(element);
+//			return true;
+//		}
 		return false;
 	}
 
