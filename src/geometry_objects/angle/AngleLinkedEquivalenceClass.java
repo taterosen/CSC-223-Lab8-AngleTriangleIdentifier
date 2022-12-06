@@ -38,7 +38,7 @@ public class AngleLinkedEquivalenceClass extends LinkedEquivalenceClass<Angle>
 		super(comparator);
 	}
 	
-	//TODO test all methods
+	
 	@Override
 	public boolean belongs(Angle target) {
 		
@@ -56,7 +56,7 @@ public class AngleLinkedEquivalenceClass extends LinkedEquivalenceClass<Angle>
 	 */
 	@Override
 	public boolean demoteAndSetCanonical(Angle element) {
-		//TODO canonical should always be the smallest angle
+		//canonical should always be the smallest angle
 		//if 1st time setting canonical//
 		if (_canonical == null ) {
 			_canonical = element;

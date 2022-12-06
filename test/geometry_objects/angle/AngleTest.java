@@ -95,7 +95,7 @@ class AngleTest {
 		assertTrue(a4d.equals(a4d));
 		assertTrue(a1d.equals(a6d));
 		assertTrue(a4d.equals(a5d));
-		assertTrue(a7d.equals(a3d));
+		assertFalse(a7d.equals(a3d));
 	}
 
 }
