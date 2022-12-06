@@ -30,6 +30,10 @@ public class TriangleIdentifier
 		if (_triangles != null) return _triangles;
 
 		_triangles = new HashSet<Triangle>();
+		
+		for (Segment s:_segments.keySet()) {
+			System.out.println(s);
+		}
 
 		computeTriangles();
 
@@ -75,10 +79,6 @@ public class TriangleIdentifier
 			
 			
 		}
-		//check every segment 
-		//check if 3 points are collinear (if so not a triangle)
-		//check that endpoints point to the same point (if so its a triangle)
-		//check that triangle doesnt already exist
 		
 	}
 	

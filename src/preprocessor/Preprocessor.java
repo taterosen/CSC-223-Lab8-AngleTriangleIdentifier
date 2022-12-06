@@ -53,6 +53,7 @@ public class Preprocessor
 		_segmentDatabase = new HashMap<Segment, Segment>();
 
 		analyze();
+		
 	}
 
 	/**
