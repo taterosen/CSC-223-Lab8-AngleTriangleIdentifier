@@ -34,10 +34,8 @@ class AngleStructureComparatorTest {
 		_pp.analyze();
 
 		_segments = _pp.getAllSegments();
+		
 	}
-	
-	
-	
 	
 	@Test
 	void ComparatorCompareTest() throws FactException {
@@ -45,15 +43,15 @@ class AngleStructureComparatorTest {
 		AngleStructureComparator comparator = new AngleStructureComparator();
 		//TODO need to test compare method
 		init("crossing_symmetric_triangle.json");
-	//      A                                 
-	//     / \                                
-	//    B___C                               
-	//   / \ / \                              
-	//  /   X   \  X is not a specified point (it is implied) 
-	// D_________E
-	//
-	// This figure contains 44 angles
-	//
+		//      A                                 
+		//     / \                                
+		//    B___C                               
+		//   / \ / \                              
+		//  /   X   \  X is not a specified point (it is implied) 
+		// D_________E
+		//
+		// This figure contains 44 angles
+		//
 		
 		Segment ab = new Segment(_points.getPoint("A"), _points.getPoint("B"));
 		Segment ac = new Segment(_points.getPoint("A"), _points.getPoint("C"));
@@ -69,37 +67,42 @@ class AngleStructureComparatorTest {
 		Segment be = new Segment(_points.getPoint("B"), _points.getPoint("E"));
 		Segment cd = new Segment(_points.getPoint("C"), _points.getPoint("D"));
 		
-		
-		Angle a1 = new Angle(ab, ac);
-		Angle a2 = new Angle(bd, de);
-		Angle a3 = new Angle(be, ce);
+		Angle BDE = new Angle(bd, de);
+		Angle BEC = new Angle(be, ce);
 		
 		Angle DAC = new Angle(da, ac);
 		Angle BAE = new Angle(ba, ae);
 		Angle DAE = new Angle(da, ae);
+		Angle ABC = new Angle(ab, bc);
+		Angle BAC = new Angle(ab, ac);
+		Angle ADE = new Angle(da, de);
+		Angle AED = new Angle(ae, de);
+		Angle DEC = new Angle(de, ce);
 		
 		//structurally incomparable
-		assertEquals(STRUCTURALLY_INCOMPARABLE, comparator.compare(a1, a2));
-		assertEquals(STRUCTURALLY_INCOMPARABLE, comparator.compare(a2, a3));
-		assertEquals(STRUCTURALLY_INCOMPARABLE, comparator.compare(a1, a3));
+		assertEquals(STRUCTURALLY_INCOMPARABLE, comparator.compare(BAC, BDE));
+		assertEquals(STRUCTURALLY_INCOMPARABLE, comparator.compare(BDE, BEC));
+		assertEquals(STRUCTURALLY_INCOMPARABLE, comparator.compare(BAC, BEC));
+		assertEquals(STRUCTURALLY_INCOMPARABLE, comparator.compare(DAC, ABC));
 		
-		//inconclusive result //TODO debug, not catching invalid angles
+		
+		//inconclusive result
 		//DAC/BAE
-		//assertEquals(0, comparator.compare(DAC, BAE));
-		//assertEquals(0, comparator.compare(BAE, DAC));
-		
-		
+		assertEquals(0, comparator.compare(DAC, BAE));
+		assertEquals(0, comparator.compare(BAE, DAC));
 		
 		//1: Greater than
 		//DAE > DAC
-		
 		assertEquals(1, comparator.compare(DAE, DAC));
+		assertEquals(1, comparator.compare(ADE, BDE));
+		assertEquals(1, comparator.compare(AED, DEC));
 		
 		
 		//-1: Less than
 		//DAE < DAC
-		
 		assertEquals(-1, comparator.compare(DAC, DAE));
+		assertEquals(-1, comparator.compare(BDE, ADE));
+		assertEquals(-1, comparator.compare(DEC, AED));
 		
 	}
 

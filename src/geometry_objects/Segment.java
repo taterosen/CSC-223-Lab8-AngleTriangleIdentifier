@@ -33,6 +33,7 @@ public class Segment extends GeometricObject
 	{
 		_point1 = p1;
 		_point2 = p2;
+		_length = GeometryUtilities.distance(p1, p2);
 	}
 
 	/*

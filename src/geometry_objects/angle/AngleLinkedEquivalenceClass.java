@@ -34,7 +34,6 @@ public class AngleLinkedEquivalenceClass extends LinkedEquivalenceClass<Angle>
 	//protected LinkedList<Angle> _rest;
 	public static final int STRUCTURALLY_INCOMPARABLE = Integer.MAX_VALUE;
 
-
 	public AngleLinkedEquivalenceClass(AngleStructureComparator comparator) {
 		super(comparator);
 	}

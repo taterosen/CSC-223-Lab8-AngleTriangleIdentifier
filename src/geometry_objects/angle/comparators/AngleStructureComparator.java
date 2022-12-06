@@ -59,20 +59,9 @@ public class AngleStructureComparator implements Comparator<Angle>
 	public int compare(Angle left, Angle right)
 	{
 		//inconclusive, not structurally comparable
-		if (!left.overlays(right) && !left.getVertex().equals(right.getVertex())) return STRUCTURALLY_INCOMPARABLE;
-		//TODO consider splitting up into two ifs? test with not overlapping and not same vertex 
+		if (!left.overlays(right) && !left.getVertex().equals(right.getVertex())) return STRUCTURALLY_INCOMPARABLE; 
 		
-		 // TODO: TEST: Debugging
 		//1: Left Rays greater than corresponding Right Rays
-		System.out.println(("Left Ray1: " + left.getRay1().length()));
-		System.out.println(("Left Ray2: " + left.getRay2().length()));
-		System.out.println(("Right Ray1: " + right.getRay1().length()));
-		System.out.println(("Right Ray2: " + right.getRay2().length()));
-		System.out.println((left.getRay1().length() >= right.getRay1().length()));
-		System.out.println(left.getRay2().length() >= right.getRay2().length());
-		
-		
-		
 		if ((left.getRay1().length() >= right.getRay1().length()) && left.getRay2().length() >= right.getRay2().length()) return 1;
 
 		//-1: Left Rays less than corresponding Right Rays
