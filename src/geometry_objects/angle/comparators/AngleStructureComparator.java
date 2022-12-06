@@ -64,6 +64,8 @@ public class AngleStructureComparator implements Comparator<Angle>
 		if(!MathUtilities.doubleEquals(left.getMeasure(), right.getMeasure())) return STRUCTURALLY_INCOMPARABLE;
 		
 		if (!left.overlays(right)) return STRUCTURALLY_INCOMPARABLE; 
+		
+		//Structurally comparable:
 				
 		Segment leftRay1 = left.getRay1();
 		Segment leftRay2 = left.getRay1();
@@ -81,7 +83,6 @@ public class AngleStructureComparator implements Comparator<Angle>
 		
 		
 		if(leftRay2.pointLiesBetweenEndpoints(overlayingLeftRay2.other(vertex))) {
-			//if(leftRay1.pointLiesBetweenEndpoints(overlayingLeftRay1.other(vertex))) return 1;
 			if(leftRay1.equals(overlayingLeftRay1)) return 1;
 		}
 		
@@ -95,50 +96,10 @@ public class AngleStructureComparator implements Comparator<Angle>
 		}
 		
 		if(overlayingLeftRay2.pointLiesBetweenEndpoints(leftRay2.other(vertex))) {
-			//if(overlayingLeftRay1.pointLiesBetweenEndpoints(leftRay1.other(vertex))) return -1;
 			if(overlayingLeftRay1.equals(leftRay1)) return -1;
 		}
 		
 		//OTHER
 		return 0;
-		
-		
-		
-		
-		
-//		double leftRay1Length = left.getRay1().length();
-//		double leftRay2Length = left.getRay2().length();
-//		
-//		double rightRay1Length = right.getRay1().length();
-//		double rightRay2Length = right.getRay2().length();
-//		
-//		
-//		
-//		//1: Left Rays greater than or equal to corresponding Right Rays (structurally larger)
-//		//if ((leftRay1Length >= rightRay1Length) && leftRay2Length >= rightRay2Length) return 1;
-//		
-//		if(MathUtilities.doubleEquals(leftRay1Length, rightRay1Length) || leftRay1Length > rightRay1Length) return 1;
-//		
-//		
-//		if(MathUtilities.doubleEquals(leftRay2Length, rightRay2Length) || leftRay2Length > rightRay2Length ) return 1;
-//		
-//		
-//		
-//		
-//		
-//		//-1: Left Rays less than or equal to corresponding Right Rays (structurally smaller)
-//		if ((leftRay1Length <= rightRay2Length) && leftRay2Length <= rightRay2Length) return -1;
-//		
-//		return 0;
-		
-//		//0: Inconclusive result 
-//		if ((leftRay1Length > rightRay1Length) && leftRay2Length < rightRay2Length) return 0;
-//		if ((leftRay1Length < rightRay1Length) && leftRay2Length > rightRay2Length) return 0;
-//		//TODO change final return value
-//		return -2048;
-		
-		
-		
-
 	}
 }
