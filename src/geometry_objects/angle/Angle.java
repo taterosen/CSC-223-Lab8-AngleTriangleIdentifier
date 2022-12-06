@@ -196,9 +196,9 @@ public class Angle implements Comparable<Angle>
 		//vertices must be the same
 		if (!vertex.equals(vertexOfObj)) return false;
 		//end points should be the same (but may be flipped) EX: CAB / BAC
-		if (ray1other.equals(objRay1other) && ray1other.equals(objRay2other)) return false;
-		if (ray2other.equals(objRay1other) && ray2other.equals(objRay2other)) return false;
+		if (ray1other.equals(objRay1other) && ray2other.equals(objRay2other)) return true;
+		if (ray2other.equals(objRay1other) && ray1other.equals(objRay2other)) return true;
 		
-		return true;
+		return false;
 	}
 }

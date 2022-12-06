@@ -91,7 +91,7 @@ class AngleLinkedEquivalenceClassTest {
 		Angle AED = new Angle(ae, de);
 		Angle DEC = new Angle(de, ce);
 		
-		Angle BAC = new Angle(ab, ac);
+		Angle BAC = new Angle(ba, ac);
 		Angle DAC = new Angle(da, ac);
 		Angle BAE = new Angle(ba, ae);
 		Angle DAE = new Angle(da, ae);
