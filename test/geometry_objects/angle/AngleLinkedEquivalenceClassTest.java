@@ -111,9 +111,8 @@ class AngleLinkedEquivalenceClassTest {
 		
 		
 		
-		//assertTrue(_AngleEC1.add(DAC));
-		//assertTrue(_AngleEC1.add(BAE));
-		//assertTrue(_AngleEC1.add(DAE));
+		assertTrue(_AngleEC1.add(BAE));
+		assertTrue(_AngleEC1.add(DAE));
 	}
 	
 	@Test

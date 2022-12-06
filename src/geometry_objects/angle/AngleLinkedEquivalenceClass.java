@@ -97,13 +97,6 @@ public class AngleLinkedEquivalenceClass extends LinkedEquivalenceClass<Angle>
 		_rest.addToFront(element);
 		return true;
 		
-		
-		
-//		if(!this.demoteAndSetCanonical(element)) return false;
-//		_rest.addToBack(element);
-//		return true;
-		
-		//return this.demoteAndSetCanonical(element);
 	}
 	
 	@Override
