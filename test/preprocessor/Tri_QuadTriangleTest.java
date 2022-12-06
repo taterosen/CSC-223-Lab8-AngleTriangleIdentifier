@@ -126,7 +126,7 @@ class Tri_QuadTriangleTest {
 		
 		Segment b_star_g = new Segment(_points.getPoint("G"), b_star);
 		
-		Segment c_star_h = new Segment(_points.getPoint("H"), b_star);
+		Segment c_star_h = new Segment(_points.getPoint("H"), c_star);
 		
 		Segment a_star_c = new Segment(_points.getPoint("C"), a_star);
 		Segment a_star_d = new Segment(_points.getPoint("D"), a_star);
@@ -166,6 +166,7 @@ class Tri_QuadTriangleTest {
 		//
 		List<Triangle> expectedTriangles = new ArrayList<Triangle>();
 		try {
+			
 			expectedTriangles.add(new Triangle(Arrays.asList(ad, ab, bd)));
 			expectedTriangles.add(new Triangle(Arrays.asList(d_star_a, ab, d_star_b)));
 			expectedTriangles.add(new Triangle(Arrays.asList(d_star_a, ac, d_star_c)));
@@ -178,7 +179,9 @@ class Tri_QuadTriangleTest {
 			expectedTriangles.add(new Triangle(Arrays.asList(d_star_c, cd, d_star_d)));
 			
 			expectedTriangles.add(new Triangle(Arrays.asList(b_star_g, eg, b_star_e)));
-			expectedTriangles.add(new Triangle(Arrays.asList(b_star_g, a_star_b_star, a_star_c_star)));
+			expectedTriangles.add(new Triangle(Arrays.asList(b_star_c_star, a_star_c_star, a_star_b_star)));
+			
+			
 			expectedTriangles.add(new Triangle(Arrays.asList(c_star_h, c_star_f, fh)));
 			
 			expectedTriangles.add(new Triangle(Arrays.asList(a_star_c, cd, a_star_d)));
@@ -186,12 +189,11 @@ class Tri_QuadTriangleTest {
 			expectedTriangles.add(new Triangle(Arrays.asList(d_star_e, d_star_f, ef)));
 			
 			expectedTriangles.add(new Triangle(Arrays.asList(ce, c_star_c, c_star_e)));
-			expectedTriangles.add(new Triangle(Arrays.asList(df, b_star_d, d_star_f)));
-			
+			expectedTriangles.add(new Triangle(Arrays.asList(df, b_star_d, b_star_f)));
 			
 		}
 		catch (FactException te) { System.err.println("Invalid triangles in triangle test."); }
-
+		
 		assertEquals(expectedTriangles.size(), computedTriangles.size());
 		
 		for (Triangle computedTriangle : computedTriangles)

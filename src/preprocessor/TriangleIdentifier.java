@@ -30,10 +30,6 @@ public class TriangleIdentifier
 		if (_triangles != null) return _triangles;
 
 		_triangles = new HashSet<Triangle>();
-		
-		for (Segment s:_segments.keySet()) {
-			System.out.println(s);
-		}
 
 		computeTriangles();
 
