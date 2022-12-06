@@ -41,6 +41,7 @@ public class AngleLinkedEquivalenceClass extends LinkedEquivalenceClass<Angle>
 	//TODO test all methods
 	@Override
 	public boolean belongs(Angle target) {
+		
 		int compareVal = _comparator.compare(_canonical, target);
 
 		if (compareVal == STRUCTURALLY_INCOMPARABLE) return false;
@@ -89,11 +90,12 @@ public class AngleLinkedEquivalenceClass extends LinkedEquivalenceClass<Angle>
 	public boolean add(Angle element) {
 		if(element == null) return false;
 		if(element.equals(_canonical)) return false;
+		
 		if(_rest.contains(element)) return false;
 		
 		//need to check if need to swap canonical
 		if(this.demoteAndSetCanonical(element)) return true;
-		
+		if(!belongs(element)) return false;
 		_rest.addToFront(element);
 		return true;
 		
