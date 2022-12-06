@@ -109,6 +109,7 @@ class AngleLinkedEquivalenceClassTest {
 		//check DAC
 		assertTrue(_AngleEC1.belongs(DAC));
 		assertTrue(_AngleEC1.add(DAC));
+
 		assertEquals(2, _AngleEC1.size());
 		assertEquals(BAC, _AngleEC1.canonical());
 		//add BAE and DAE
