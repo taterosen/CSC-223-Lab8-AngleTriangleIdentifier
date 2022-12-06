@@ -143,6 +143,16 @@ public class Preprocessor
 
 		return segmentsToReturn;
 	}
+	
+	protected Set<Point> getAllPoints(){
+		Set<Point> allPoints = new LinkedHashSet<Point>();
+		
+		allPoints.addAll(_pointDatabase.getPoints());
+		allPoints.addAll(_implicitPoints);
+		
+		return allPoints;
+		
+	}
 
 	/**
 	 * Adds all implicit segments in then decides from given segments which are not already included 

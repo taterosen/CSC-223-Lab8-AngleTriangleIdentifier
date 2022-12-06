@@ -38,6 +38,10 @@ public class Triangle
 	{
 		// 3 sides
 		if (segs.size() != 3) return false;
+		
+		for(Segment each: segs) {
+			if(each == null) return false;
+		}
 
 		// Gather distinct endpoints
 		Point endpoint1 = segs.get(0).sharedVertex(segs.get(1));

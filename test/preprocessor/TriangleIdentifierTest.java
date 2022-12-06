@@ -35,6 +35,10 @@ class TriangleIdentifierTest
 		_pp = new Preprocessor(_points, pair.getValue());
 
 		_pp.analyze();
+		
+		for(Point p: _pp.getAllPoints()) {
+			_points.put(p.getName(), p.getX(), p.getY());
+		}
 
 		_segments = _pp.getAllSegments();
 	}
@@ -57,7 +61,7 @@ class TriangleIdentifierTest
 
 		Set<Triangle> computedTriangles = triIdentifier.getTriangles();
 
-		System.out.println(computedTriangles);
+		//System.out.println(computedTriangles);
 
 		assertEquals(12, computedTriangles.size());
 
@@ -78,13 +82,14 @@ class TriangleIdentifierTest
 		//
 		// Implied minimal segments: 4 in this figure.
 		//
+		
 		Point a_star = _points.getPoint(3,3);
 
 		Segment a_star_b = new Segment(a_star, _points.getPoint("B"));
 		Segment a_star_c = new Segment(a_star, _points.getPoint("C"));
 		Segment a_star_d = new Segment(a_star, _points.getPoint("D"));
 		Segment a_star_e = new Segment(a_star, _points.getPoint("E"));
-
+		
 		//
 		// Non-minimal, computed segments: 2 in this figure.
 		//
