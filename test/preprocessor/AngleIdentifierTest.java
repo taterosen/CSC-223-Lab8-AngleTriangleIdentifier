@@ -36,6 +36,10 @@ class AngleIdentifierTest
 		_pp = new Preprocessor(_points, pair.getValue());
 
 		_pp.analyze();
+		
+		for(Point p: _pp.getAllPoints()) {
+			_points.put(p.getName(), p.getX(), p.getY());
+		}
 
 		_segments = _pp.getAllSegments();
 	}
