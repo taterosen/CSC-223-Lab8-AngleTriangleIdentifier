@@ -40,25 +40,10 @@ class AngleLinkedEquivalenceClassTest {
 		
 	}
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		//test whether belongs or not
 	
-	
 	@Test
-	void demoteAndSetCanonicalTest() {
-		//fail("Not yet implemented");
-	}
-	
-	@Test
-	void addTest() throws FactException {
+	void ALECTest() throws FactException {
 		init("crossing_symmetric_triangle.json");
 		//      A                                 
 		//     / \                                
@@ -105,21 +90,41 @@ class AngleLinkedEquivalenceClassTest {
 		assertTrue(_AngleEC1.belongs(BAC));
 		assertFalse(_AngleEC1.add(BAC));
 		assertEquals(1, _AngleEC1.size());
+		assertEquals(BAC, _AngleEC1.canonical());
 		//check DAC
 		assertTrue(_AngleEC1.belongs(DAC));
 		assertTrue(_AngleEC1.add(DAC));
-		
+		assertEquals(2, _AngleEC1.size());
+		assertEquals(BAC, _AngleEC1.canonical());
+		//add BAE and DAE
+		assertTrue(_AngleEC1.belongs(BAE));
+		assertTrue(_AngleEC1.belongs(DAE));
 		assertTrue(_AngleEC1.add(BAE));
 		assertTrue(_AngleEC1.add(DAE));
-		
-		assertFalse(_AngleEC1.add(DAC));
+		assertEquals(4, _AngleEC1.size());
+		assertEquals(BAC, _AngleEC1.canonical());
+
+		//add one that doesnt belong
+
 		assertFalse(_AngleEC1.belongs(AED));
-		assertFalse(_AngleEC1.add(AED));
+		assertFalse(_AngleEC1.add(AED)); 
+		
+		//remove DAC, BAC, BAE
+		assertTrue(_AngleEC1.remove(DAC));
+		assertEquals(3, _AngleEC1.size());
+		assertEquals(BAC, _AngleEC1.canonical());
+	
+		assertTrue(_AngleEC1.remove(BAC));
+		assertEquals(2, _AngleEC1.size());
+		assertEquals(BAE, _AngleEC1.canonical());
+		
+		assertTrue(_AngleEC1.removeCanonical());
+		assertEquals(1, _AngleEC1.size());
+		assertEquals(DAE, _AngleEC1.canonical());
+		
+		//new canonical: DAE 
+		//size: 1;
 	}
 	
-	@Test
-	void removeCanonicalTest() {
-		//fail("Not yet implemented");
-	}
 
 }
